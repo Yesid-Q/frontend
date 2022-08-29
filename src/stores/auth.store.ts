@@ -27,6 +27,7 @@ export const useAuthStore = defineStore('auth', {
                 const data = JSON.parse(localStorage.getItem('auth') as string)
                 this.token = data.token
                 this.name = data.name
+                this.isAuthentication = true
             }
         }
 
