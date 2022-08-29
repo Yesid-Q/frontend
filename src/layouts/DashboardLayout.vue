@@ -9,7 +9,7 @@
         </span>
       </div>
     </div>
-      <vs-button color="danger">
+      <vs-button color="danger" v-on:click="logout()">
         cerrar seccion
       </vs-button>
   </header>
@@ -40,10 +40,18 @@
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { useAuthStore } from "../stores/auth.store";
 
 const authStore = useAuthStore()
+const router$ = useRouter()
 const activeItem = ref<number>(0);
+
+const logout = () => {
+  console.log('hola')
+  authStore.logout()
+  router$.push({ path: '/' })
+}
 </script>
 
 
